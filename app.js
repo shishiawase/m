@@ -41,7 +41,7 @@ class Visit {
       if (uN !== "MusicBot") {
         drrr[num].handOver(uN);
         console.log("Transfer host to - ", uN);
-      } else rand(num, min, uL - 1);
+      } else randHost(num, min, uL - 1);
     })
   
   }
@@ -125,6 +125,12 @@ class Visit {
                 }
               })
             });
+
+            drrr[num].event(["dm"], (u, m) => {
+              if (m.match("/off")) {
+                  drrr[num].kick(u, () => delEv(num, id));
+              }
+            });
   
           })
         }
@@ -192,6 +198,12 @@ class Visit {
                   delEv(num, id);
                 }
               })
+            });
+
+            drrr[num].event(["dm"], (u, m) => {
+              if (m.match("/off")) {
+                  drrr[num].kick(u, () => delEv(num, id));
+              }
             });
   
           })
